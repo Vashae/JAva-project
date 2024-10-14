@@ -20,7 +20,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     margin: 0 auto;
     max-width: 1200px;
     height: 100px;
@@ -28,7 +27,7 @@ nav {
 
 }
 .nav__link--list {display: flex;
-    width: 100%;
+   
    
    
 }
@@ -58,12 +57,12 @@ nav {
     width: 100%;
 }
 
-.btn__contact {
+.nav__anchor {
     display: flex;
     cursor: pointer;
     padding: 12px 40px;
     align-items: center;
-    border: 2px #5d3eff;
+    border: 2px solid #5d3eff;
     border-radius: 50px;
     background-color: #6030b1;
     color: white;
@@ -77,18 +76,28 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    
 }
 .starter{display: flex;
    justify-content: center;
    align-items: center;
-    
+    font-size: 20px;
+    margin-top: 20px;
 }
 .movie__bars{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: 20px;
+   
+    
 
+}
+.row{
+    width: 100%;
 }
 .first {transition: all 300ms ease;
     background-color: aquamarine;
