@@ -1,21 +1,27 @@
 async function main() {
-    const movies = await fetch("http://www.omdbapi.com/?i=tt3896198&apikey=baaa7316&s=fast");
-    const moviesData = await movies.json();
-    const movie = document.querySelector(`.movie`);
-    movie.innerHTML = moviesData
+    try {const movies = await fetch("http://www.omdbapi.com/?i=tt3896198&apikey=baaa7316&s=fast");
+    const data = await movies.json();
+    if (data.response === 'false') {
+        throw new Error(data.Error);
+    }
+    const moviecontainer = document.querySelector(`.movie`);
+    moviecontainer.innerHTML = data.Search
     .map(
    (movie) => (`<div class="movie__picture">
         <div class="movie__container">
-            <h4><b>poster</b> <a href="https://website.website"></a></h4>
-            <h4>Movie Title</h4>
-            <p><b>Year:</b>0000</p>
-            <p><b>imdbID:</b>000000000</p>
-            <p><b>Type</b>movie</p>
+            <h4> <img src="${movie.Poster}" alt="${movie.Title}"> </h4>
+            <h4>${movie.Title}ter</b></h4>
+            <p><b>Year:</b>${movie.Year}</p>
+            <p><b>imdbID:</b>${movie.imdbID}</p>
+            <p><b>Type:</b>${movie.Type}</p>
             
         </div>
          </div>`))
 
          .join("");
+   }    catch (error) {
+    console.error("Error fetching movie data:", error);
+    document.querySelector('.movie').innerHTML = `<p>Error: ${error.message}</p>`;
 
-}
+}}
 main();
