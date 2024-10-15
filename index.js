@@ -1,3 +1,24 @@
+
+const movieListEl = document.querySelector(`movie__picture`)
+function showmovies (movieTitle){
+    window.localStorage.setItem("id", movieTitle);}
+const id = localStorage.getItem("id")
+
+
+async function onSearchChange(event){
+    const id = event.target.value;
+    mainstreet("id")
+
+}
+
+async function mainstreet(id) {
+    
+        const searches = await fetch(`http://img.omdbapi.com/?apikey=baaa7316&s=fast:${id}`);
+        const searchesData = await searches.json();
+        movieListEl.innerHTML = searchesData.map (movie__picture => search(id)).join("")
+    
+
+}
 async function main() {
     try {const movies = await fetch("http://www.omdbapi.com/?i=tt3896198&apikey=baaa7316&s=fast");
     const data = await movies.json();
@@ -24,4 +45,4 @@ async function main() {
     document.querySelector('.movie').innerHTML = `<p>Error: ${error.message}</p>`;
 
 }}
-main();
+main("id");
