@@ -7,6 +7,17 @@ async function main() {
     if (data.response === 'false') {
         throw new Error(data.Error);
     }
+    async function moviePicture(id) {
+        const searches = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=baaa7316&s=${id}`);
+        const searchesData = await searches.json();
+    }
+    
+    
+   async function onSearchChange(event){
+        const id = event.target.value;
+       moviePicture(id)
+       console.log(id)
+    }
     const moviecontainer = document.querySelector(`.movie`);
     moviecontainer.innerHTML = data.Search
     .map(
@@ -30,16 +41,10 @@ async function main() {
 function showmovies (movies){
     window.localStorage.setItem("id", movies);}
 const id = localStorage.getItem("id")
-
-async function moviePicture(id) {
-    const searches = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=baaa7316&s=fast${id}`);
-    const searchesData = await searches.json();
+for (let i = 6; i < Math.floor(id); i++){ 
+    id = id +"";
 }
-
-
-async function onSearchChange(event){
-    const id = event.target.value;
-   moviePicture(id)
    
-}
-main();
+
+
+main(id);
