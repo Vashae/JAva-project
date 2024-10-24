@@ -107,6 +107,14 @@ nav {
     background-color: purple;
     transform: scale(1.1);
 }
-.second {
+#movie__pic {
+    display: flex;
+
+}
+.movie__container{display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 
 }
