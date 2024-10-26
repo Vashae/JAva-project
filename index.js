@@ -1,12 +1,15 @@
- async function onSearchChange(event){
-    const id = event.target.value;
+const was = data.slice(0,6);
+
+async function main(id){
     try {
         const response = await fetch(`http://www.omdbapi.com/?apikey=baaa7316&s=${id}`);
         const data = await response.json();
-
+       
+    
         if (data.Response === "False") {
             throw new Error(data.Error);
         }
+       
 
         const movieContainer = document.querySelector('.movie');
         movieContainer.innerHTML = data.Search
@@ -22,11 +25,20 @@
                 </div>
             `)
             .join("");
-    } catch (error) {
-        console.error("Error fetching movie data:", error);
-        document.querySelector('.movie').innerHTML = `<p>Error: ${error.message}</p>`;
+        } catch (error) {
+            console.error("Error fetching movie data:", error);
+            document.querySelector('.movie').innerHTML = `<p>Error: ${error.message}</p>`;
+        }
     }
-}
+    
+    async function onSearchChange(event){
+        const id = event.target.value;
+        main(id)
+    }
+    
+    
+
+main();
 
 
 
