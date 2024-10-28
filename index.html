@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
+    <script src="https://kit.fontawesome.com/0736436fa0.js" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
     <title>movies</title>
 </head>
@@ -23,7 +24,7 @@
         <li class="nav__link nav__hover">
            <a href="#">Find your Movie</a> 
         </li>
-        <li class="nav__link nav__anchor nav__hover">
+        <li class="nav__anchor">
             <a class="btn__contact" href="#">Contact</a>
         </li>
        </ul>
@@ -41,17 +42,18 @@
 <section id="movie__bar">
     <div class="movie__bars">
     <input class="second" type="text" placeholder="Search by Movie Title" onchange="onSearchChange(event)">  <button class="first">GO</button>
+
 </div>
 </section>
 <section id="movie__pic">
     <div class="movie">
     <div class="movie__picture">
         <div class="movie__container">
-            <h4> <img src="" alt=""></h4>
-            <h4>Movie Title</h4>
-            <p><b>Year:</b>0000</p>
-            <p><b>imdbID:</b>000000000</p>
-            <p><b>Type</b>movie</p>
+            <h4> <img class="pic" src="" alt=""></h4>
+           <h4 class="title">Movie Title</h4>
+           <p class="yr"><b>Year:</b>0000</p>
+        <p class="identity"><b>imdbID:</b>000000000</p>
+        <p class="genre"><b>Type:</b>movie</p>
             
         </div>
 
