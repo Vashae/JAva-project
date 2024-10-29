@@ -39,6 +39,7 @@ async function main(id = "") {
     const id = event.target.value;
     main(id);
   }
-
-
+setTmeout(function(){
+  document.querySelector(".movie").classList.remove("loading");
+}, 4000)
 

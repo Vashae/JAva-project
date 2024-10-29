@@ -160,11 +160,11 @@ nav {
 /*skeleton loading state
 
 */
-.pic, .title, .genre, .identity, .yr {
+.loading .pic, .loading .title,.loading .genre,.loading .identity,.loading .yr {
     position: relative;
 
 }
-.pic:after, .title:after, .genre:after, .identity:after, .yr:after{
+.loading .pic:after,.loading .title:after,.loading .genre:after,.loading .identity:after,.loading .yr:after{
     content: "";
     position: absolute;
     background-color: #434343;
