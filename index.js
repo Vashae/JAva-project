@@ -1,7 +1,10 @@
 async function main(id = "") {
-    try {
+  const movieContainer = document.querySelector(".movie");
+  movieContainer.classList.add("loading");
+  
+  try {
       const response = await fetch(
-        `http://www.omdbapi.com/?apikey=baaa7316&s=${id}`
+        `https://www.omdbapi.com/?apikey=baaa7316&s=${id}`
       );
       const data = await response.json();  
   
@@ -9,7 +12,7 @@ async function main(id = "") {
         throw new Error(data.Error);
       }
    
-      const movieContainer = document.querySelector(".movie");
+     
       movieContainer.innerHTML = data.Search.slice(0, 6)
         .map(
           (movie) => `
@@ -32,6 +35,10 @@ async function main(id = "") {
         ".movie"
       ).innerHTML = `<p>Error: ${error.message}</p>`;
     }
+    finally {
+     
+      movieContainer.classList.remove("loading");
+  }
 
   }
   
@@ -39,7 +46,5 @@ async function main(id = "") {
     const id = event.target.value;
     main(id);
   }
-setTmeout(function(){
-  document.querySelector(".movie").classList.remove("loading");
-}, 4000)
+
 
