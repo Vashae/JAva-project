@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 * {margin: 0;
     box-sizing: border-box;
     padding: 0;
     background-color: darkmagenta;
+    font-family: 'Roboto', 'Sans Serif';
+    
+
     
     
 }
@@ -118,13 +122,24 @@ nav {
    background-color: aquamarine;
     transform: scale(1.1);
 }
-.movie__container{display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
+.movie {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 200px;
+    
 }
+.movie__container{
+    display: flex;
+    flex-direction: column;
+    width: calc(100%/6);
+    
+    
+    
+   
+    
+    
+}
+
 .second {
     background-color: #fff;
     border-radius: 20px;
@@ -150,12 +165,13 @@ nav {
  .title, .genre, .identity, .yr {
     color: lightgoldenrodyellow;
     font-size: 24px;
+    display: flex;
     
 }
 .pic {
-  width: 300px;
-  height: 450px;
-}
+    width: 300px;
+    height: 450px;
+  }
 
 /*skeleton loading state
 
@@ -164,7 +180,7 @@ nav {
     position: relative;
 
 }
- .pic:after, .title:after, .genre:after, .identity:after,.yr:after{
+ .loading .pic:after,.loading .title:after,.loading .genre:after,.loading .identity:after,.loading .yr:after{
     content: "";
     position: absolute;
     background-color: #434343;

@@ -18,7 +18,7 @@ async function main(id = "") {
           (movie) => `
                     <div class="movie__picture">
                         <div class="movie__container">
-                            <h4><img class="pic" src="${movie.Poster}" alt="${movie.Title} poster"></h4>
+                            <div class="pic"> <h4><img src="${movie.Poster}" alt="${movie.Title} poster"></h4></div>
                             <h4 class="title">${movie.Title}</h4>
                             <p class="yr"><b>Year:</b> ${movie.Year}</p>
                             <p class="identity"><b>imdbID:</b> ${movie.imdbID}</p>
