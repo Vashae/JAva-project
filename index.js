@@ -1,8 +1,11 @@
 const movieContainer = document.querySelector(".movie");
+
+
+
 function renderMovies(filter){
   if (filter === `Year`){
   console.log(filter)
-  const fr = moviecontainer.sort(a.movie.Year - b.movie.Year)
+  const fr = movieContainer.sort((a, b) => a.movie.Year - b.movie.Year);
   console.log(fr)
   }
   
@@ -12,7 +15,7 @@ function renderMovies(filter){
 
 async function main(id = "") {
   
-  movieContainer.classList.add("loading");
+movieContainer.classList.add("loading");
  
   
   try {

@@ -138,6 +138,8 @@ background-color: lightgoldenrodyellow;
     display: flex;
     flex-direction: column;
     width: calc(100%/6);
+    margin: 20px;
+    justify-content: center;
     }
 
 .second {
