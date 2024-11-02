@@ -38,12 +38,21 @@
     <div class="starter">
         Find a Riveting Movie. 
     </div>
+   
+    </div>
+
 </section>
 <section id="movie__bar">
     <div class="movie__bars">
     <input class="second" type="text" placeholder="Search by Movie Title" onchange="onSearchChange(event)">  <button class="first">GO</button>
-
 </div>
+    <select id="filter" onchange="filtermovies(event)">
+        <option value="" disabled selected >Sort</option>
+        <option value="Year">Year</option>
+        <option value="OMDBID">OMDBID</option>
+        <option value="Type">Type</option>
+    </select>
+
 </section>
 <section id="movie__pic">
     <div class="movie">

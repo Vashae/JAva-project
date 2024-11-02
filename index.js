@@ -1,6 +1,19 @@
+const movieContainer = document.querySelector(".movie");
+function renderMovies(filter){
+  if (filter === `Year`){
+  console.log(filter)
+  const fr = moviecontainer.sort(a.movie.Year - b.movie.Year)
+  console.log(fr)
+  }
+  
+
+}
+
+
 async function main(id = "") {
-  const movieContainer = document.querySelector(".movie");
+  
   movieContainer.classList.add("loading");
+ 
   
   try {
       const response = await fetch(
@@ -11,6 +24,7 @@ async function main(id = "") {
       if (data.Response === "False") {
         throw new Error(data.Error);
       }
+     
    
      
       movieContainer.innerHTML = data.Search.slice(0, 6)
@@ -42,9 +56,13 @@ async function main(id = "") {
 
   }
   
-  async function onSearchChange(event) {
+   function onSearchChange(event) {
     const id = event.target.value;
     main(id);
   }
+  function filtermovies(event) {
+   renderMovies(event.target.value);
 
+  }
+  renderMovies()
 
