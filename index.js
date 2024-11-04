@@ -16,7 +16,7 @@ function renderMovies(filter){
     movieContainer.innerHTML = '';
     sortedMovies.forEach(movie => movieContainer.appendChild(movie));
   }
-   if (filter === 'OMDBID'){
+   else if (filter === 'OMDBID'){
     const sortedstovies = movies.sort((a, b) => {
       const num1 = parseInt(a.querySelector(`.identity`).textContent.split(`:`)[1]);
       const num2 = parseInt(b.querySelector(`.identity`).textContent.split(`:`)[1]);
@@ -30,8 +30,8 @@ function renderMovies(filter){
   }
    if (filter === `Title`){
     const sorts = movies.sort ((a, b) => {
-      const num3 = (a.querySelector(`.movie`));
-      const num4 = (b.querySelector(`.movie`));
+      const num3 = (a.querySelector(`.title`));
+      const num4 = (b.querySelector(`.title`));
       return num3 - num4;
 
     });
