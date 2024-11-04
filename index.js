@@ -3,14 +3,47 @@ const movieContainer = document.querySelector(".movie");
 
 
 function renderMovies(filter){
-  if (filter === `Year`){
-  console.log(filter)
-  const fr = movieContainer.sort((a, b) => a.movie.Year - b.movie.Year);
-  console.log(fr)
+  const movies = [...document.querySelectorAll('.movie__container')];
+  
+  if (filter === 'Year') {
+    const sortedMovies = movies.sort((a, b) => {
+      const yearA = parseInt(a.querySelector('.yr').textContent.split(':')[1]);
+      const yearB = parseInt(b.querySelector('.yr').textContent.split(':')[1]);
+      return yearA - yearB;
+    });
+    
+    
+    movieContainer.innerHTML = '';
+    sortedMovies.forEach(movie => movieContainer.appendChild(movie));
+  }
+   if (filter === 'OMDBID'){
+    const sortedstovies = movies.sort((a, b) => {
+      const num1 = parseInt(a.querySelector(`.identity`).textContent.split(`:`)[1]);
+      const num2 = parseInt(b.querySelector(`.identity`).textContent.split(`:`)[1]);
+      return num1 - num2;
+    });
+
+    movieContainer.innerHTML = ``;
+    sortedstovies.forEach(movie => movieContainer.appendChild(movie));
+
+
+  }
+   if (filter === `Title`){
+    const sorts = movies.sort ((a, b) => {
+      const num3 = (a.querySelector(`.movie`));
+      const num4 = (b.querySelector(`.movie`));
+      return num3 - num4;
+
+    });
+
+    movieContainer.innerHTML = ``;
+    sorts.forEach(movie => movieContainer.appendChild(movie));
+
+  }
   }
   
 
-}
+
 
 
 async function main(id = "") {
