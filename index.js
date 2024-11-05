@@ -3,45 +3,53 @@ const movieContainer = document.querySelector(".movie");
 
 
 function renderMovies(filter){
-  const movies = [...document.querySelectorAll('.movie__container')];
+ if (!filter) return; 
+ const movies = [...document.querySelectorAll('.movie__container')];
+    let sortedMovies; 
+    switch (filter) {
+      case `Year Ascending`:
+        sortedMovies = movies.sort((a, b) => {const yearA =
+          parseInt(a.querySelector(`.yr`).textContent.split(`:`)[1]); 
+          const yearB = parseInt(b.querySelector(`.yr`).textContent.split(`:`)[1]);
+          return yearA - yearB;
+         });
+         break;
+         case `Year Descending`:
+          sortedMovies = 
+          movies.sort((a, b) => {const num1 = parseInt(a.querySelector(`.yr`).textContent.split(`:`)[1]);
+            const num2 = parseInt(b.querySelector(`.yr`).textContent.split(`:`)[1]);
+            return num2 - num1;
+          } );
+          break;
+          case `Title`:
+            sortedMovies = 
+            movies.sort((a, b) => {const titleA = a.querySelector(`.title`).textContent.toLowerCase();
+              const titleB = b.querySelector(`.title`).textContent.toLowerCase();
+              return titleA.localeCompare(titleB);
+            });
+            break;
+
+            default: 
+            return;
+            }
+            const tempContainer = document.createElement(`div`);
+            tempContainer.className = `movie`;
+
+            sortedMovies.forEach(movie => {const pictureWrapper =
+              document.createElement(`div`);
+              pictureWrapper.className = `movie__picture`;
+              pictureWrapper.appendChild(movie.cloneNode(true));
+              tempContainer.appendChild(pictureWrapper);
+            }); 
+            movieContainer.innerHTML =
+            tempContainer.innerHTML;
+          }
+
+
+ 
+
   
-  if (filter === 'Year') {
-    const sortedMovies = movies.sort((a, b) => {
-      const yearA = parseInt(a.querySelector('.yr').textContent.split(':')[1]);
-      const yearB = parseInt(b.querySelector('.yr').textContent.split(':')[1]);
-      return yearA - yearB;
-    });
-    
-    
-    movieContainer.innerHTML = '';
-    sortedMovies.forEach(movie => movieContainer.appendChild(movie));
-  }
-   else if (filter === 'OMDBID'){
-    const sortedstovies = movies.sort((a, b) => {
-      const num1 = parseInt(a.querySelector(`.identity`).textContent.split(`:`)[1]);
-      const num2 = parseInt(b.querySelector(`.identity`).textContent.split(`:`)[1]);
-      return num1 - num2;
-    });
-
-    movieContainer.innerHTML = ``;
-    sortedstovies.forEach(movie => movieContainer.appendChild(movie));
-
-
-  }
-   if (filter === `Title`){
-    const sorts = movies.sort ((a, b) => {
-      const num3 = (a.querySelector(`.title`));
-      const num4 = (b.querySelector(`.title`));
-      return num3 - num4;
-
-    });
-
-    movieContainer.innerHTML = ``;
-    sorts.forEach(movie => movieContainer.appendChild(movie));
-
-  }
-  }
-  
+ 
 
 
 
@@ -50,7 +58,6 @@ async function main(id = "") {
   
 movieContainer.classList.add("loading");
  
-  
   try {
       const response = await fetch(
         `https://www.omdbapi.com/?apikey=baaa7316&s=${id}`

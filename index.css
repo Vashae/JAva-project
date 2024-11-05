@@ -106,11 +106,14 @@ nav {
 
 }
 #filter{
- position: absolute;
- top: 400px;
- left: 750px;
+position: absolute;
+top: 350px;
+left: 1186px;
 background-color: lightgoldenrodyellow;
+border-radius: 20px;
+text-align: center;
 }
+
 .row{
     width: 100%;
     
@@ -210,12 +213,13 @@ background-color: lightgoldenrodyellow;
     #filter {
         position: absolute;
         top: 400px;
-        left: 380px;
+        left: 625px;
     }
     .movie__container {
         display: flex;
         justify-content: center;
         align-items: center;
+        width: calc(100%/3);
     }
 }
 
@@ -229,7 +233,7 @@ background-color: lightgoldenrodyellow;
 #filter {
    position: absolute;
    top: 300px;
-   left:250px;
+   left:430px;
 }
 nav{
     max-width: 728px;
@@ -254,7 +258,7 @@ nav{
     #filter {
         position: absolute;
         top: 300px;
-        left:200px;
+        left:330px;
     }
     .movie__container {
         display: flex;
