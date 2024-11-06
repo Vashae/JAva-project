@@ -98,7 +98,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
+        margin: 0 auto;
     max-width: 1200px;
     height: 100px;
     padding: 0 20px;
@@ -108,7 +108,7 @@ nav {
 #filter{
 position: absolute;
 top: 350px;
-left: 1186px;
+left: 700px;
 background-color: lightgoldenrodyellow;
 border-radius: 20px;
 text-align: center;
@@ -209,17 +209,17 @@ text-align: center;
     }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1000px) {
     #filter {
         position: absolute;
         top: 400px;
-        left: 625px;
+       left: 390px;
     }
     .movie__container {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: calc(100%/3);
+        width:100%;
     }
 }
 
@@ -232,8 +232,8 @@ text-align: center;
 }
 #filter {
    position: absolute;
-   top: 300px;
-   left:430px;
+   top: 350px;
+   left:280px;
 }
 nav{
     max-width: 728px;
@@ -257,13 +257,21 @@ nav{
     }
     #filter {
         position: absolute;
-        top: 300px;
-        left:330px;
+        top: 350px;
+        left:180px;
     }
-    .movie__container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+   .movie__container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+   width: calc(100%/2);
+   }
+  
+   .movie {
+    flex-wrap: wrap;
+   }
+  
+   
 }
 
